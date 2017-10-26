@@ -48,23 +48,7 @@ Given the data available user based collaborative filtering is easy to implement
 * Given the system depends on real people, it can be 'tricked' or gamed (like Shilling attacks).
 
 
-# Solution / Thinking
-## List of problems
-* One day to come up with solution to something that I havn't done before.
-* What to do when no history is available.
-* User or Item focused
-* Figure out how to test the data set (what metrix to use)
-
-## Steps to take
-1. Do Google research
-2. Select method to implement
-3. Research method more in details (find examples)
-4. Implement MVP
-5. Test MVP with data
-6. Find metrix for evaluation
-7. Refactor to 'prod'
-
-### 1. Do Google Research
+# Resources
 * https://medium.com/ai-society/a-concise-recommender-systems-tutorial-fa40d5a9c0fa
 * https://blog.dominodatalab.com/recommender-systems-collaborative-filtering/
 * http://surprise.readthedocs.io/en/stable/getting_started.html
@@ -73,35 +57,4 @@ Given the data available user based collaborative filtering is easy to implement
 * https://cambridgespark.com/content/tutorials/implementing-your-own-recommender-systems-in-Python/index.html
 * https://www.analyticsvidhya.com/blog/2016/06/quick-guide-build-recommendation-engine-python/
 * http://guidetodatamining.com
-
-Seems there are 2 main approches: content-based and collaborative-filtering. 
-
-### 2. Select method to implement
-* Given data available (user -> website), user based collaborative-filtering would work.
-* For Initialization problem: use most viewed website
-
-### 3. User based collaborative-filtering
 * http://blog.untrod.com/2016/06/simple-similar-products-recommendation-engine-in-python.html
-* Udemy (https://www.udemy.com/data-science-and-machine-learning-with-python-hands-on)
-* http://surprise.readthedocs.io/en/stable/getting_started.html
-
-Getting a basic understaning of the theory and find some examples where the method has been implemented.
-
-### 4. MVP
-* Implement in Jupyter Notebook
-1. Input data
-2. Clean data
-3. describe data
-4. implement method (maybe 3rd part lib? No, go for easy correlation method)
-
-### 5. Test with data
-* Try
-
-### 6. How to evaluate
-* Kind of difficult. Not sure what we should be evaluating: a) Are we trying to recommend the website that the user is looking for?
-b) are we trying to recommend a website the user SHOULD be looking for? c) something else?
-* How do we determine whether or not a recommended website is relevant? Should we look at recommendations and see if the user actually visited this site?
-
-
-### 7. Refactor to 'prod'
-* Implement as Flask app with API endpoint
