@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+    image: app-api
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 5000:5000
+    environment:
+      ENV: local
+      FLASK_APP: app-api.py
+      SECRET_KEY: eEnbvGyk]Y8R/BgU
+      FLASK_DEBUG: 1
+

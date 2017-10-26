@@ -1,0 +1,7 @@
+venv/
+__cache__/
+*.pyc
+.vscode/
+.cache/
+.ipynb_checkpoints/
+htmlcov/
