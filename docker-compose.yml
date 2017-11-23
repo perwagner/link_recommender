@@ -16,3 +16,13 @@ services:
       SECRET_KEY: eEnbvGyk]Y8R/BgU
       FLASK_DEBUG: 1
 
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: LINKDB
+      MYSQL_USER: tester
+      MYSQL_PASSWORD: 12345
