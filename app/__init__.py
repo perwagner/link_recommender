@@ -2,10 +2,11 @@ from flask import Flask
 from config import config
 import logging
 from .api_v1 import api_v1 as api_v1_blueprint
-
-
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
+logger.info("In __init__.py")
+
+
 from .model import db
 
 

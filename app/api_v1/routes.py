@@ -5,8 +5,11 @@ from sqlalchemy.exc import ProgrammingError
 from . import api
 from app.api_v1.recommender_engine.recommender import create_website_recommendation
 from app.api_v1.recommender_engine.recommender import read_training_data
-from app.model import User
-
+from app.model import User, db
+from app.factories import UserFactory
+import logging
+from faker import Faker
+fake = Faker()
 
 class Status(Resource):
     def get(self):
@@ -15,6 +18,39 @@ class Status(Resource):
         }
 
         return response, 200
+
+
+class UserAPI(Resource):
+    def get(self):
+        users = User.query.all()
+
+        return len(users)
+
+    def post(self):
+        try:
+            UserFactory()
+            return 'created', 200
+        except Exception as E:
+            logging.error(E)
+            return 'error', 404
+
+
+class ResetAPI(Resource):
+    def get(self):
+        db.drop_all()
+        db.create_all()
+        for i in range(10):
+            UserFactory()
+
+        return 'full reset'
+
+    def delete(self):
+        db.drop_all()
+        return 'delete_all()'
+
+    def post(self):
+        db.create_all()
+        return 'create_all()'
 
 
 class Recommender(Resource):
@@ -41,6 +77,8 @@ class ProductRecommender(Resource):
         return "SUCCESS"
 
 
+api.add_resource(UserAPI, '/user')
+api.add_resource(ResetAPI, '/reset')
 api.add_resource(Status, '/status', '/')
 api.add_resource(Recommender, '/recommender/<int:user_id>')
 api.add_resource(ProductRecommender , '/recommender/product/<int:user>/<int:product>')

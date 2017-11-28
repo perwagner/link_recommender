@@ -50,4 +50,18 @@ def test_recommender_user_without_history(app):
     data = json.loads(resp.data)
     print(data)
 
-    assert data == ['/msdownload', '/ie', '/search', '/isapi', '/products']   
+    assert data == ['/msdownload', '/ie', '/search', '/isapi', '/products']
+
+
+@pytest.mark.api
+@pytest.mark.user
+def test_user(app):
+    url = '/api/v1/user'
+
+    with app.test_client() as client:
+        resp = client.post(url)
+
+    data = json.loads(resp.data)
+    print(data)
+
+    assert False
